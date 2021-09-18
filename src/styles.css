@@ -1,0 +1,13 @@
+.LoginPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-lock-social-buttons-pane {
+  display: none !important;
+}
+
+.auth0-lock-tabs-container {
+  display: none !important;
+}
