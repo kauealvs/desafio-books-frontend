@@ -1,11 +1,22 @@
+import Login from "./components/Login";
 import "./styles.css";
-import { useAuth0 } from "@auth0/auth0-react";
 
 function App() {
-  const { loginWithRedirect } = useAuth0();
   return (
     <section className="login-page-container-sectioon">
-      {loginWithRedirect()}
+      <div>
+        <p>Books</p>
+        <input class="email" type="email" placeholder="E-mail" />
+        <br></br>
+        <input class="password" type="password" placeholder="Senha" />
+        <button
+          onClick={() => {
+            Login();
+          }}
+        >
+          Entrar
+        </button>
+      </div>
     </section>
   );
 }

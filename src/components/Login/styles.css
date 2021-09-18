@@ -1,0 +1,53 @@
+.LoginPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-page-container-sectioon {
+  display: flex;
+  align-items: center;
+  background-image: url(../../assets/img/BackgroundImage.png);
+  width: 100vw;
+  height: 100vh;
+  padding-left: 115px;
+}
+
+.login-page-container-sectioon input {
+  width: 368px;
+  height: 60px;
+  background: rgba(0, 0, 0, 0.32);
+  backdrop-filter: blur(2px);
+  border-radius: 4px;
+  margin-bottom: 16px;
+  border: none;
+}
+
+.login-page-container-sectioon button {
+  width: 85px;
+  height: 36px;
+  background: #fff;
+  border-radius: 44px;
+  color: #b22e6f;
+  font-size: 16px;
+  font-weight: 500;
+  position: absolute;
+  left: 396px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.login-page-container-sectioon p {
+  display: flex;
+  align-items: center;
+  font-weight: 300;
+  font-size: 28px;
+  line-height: 40px;
+  color: #fff;
+}
+
+.login-page-container-sectioon p::before {
+  content: url(../../assets/img/Logo.png);
+  padding-top: 10px;
+  padding-right: 16px;
+}

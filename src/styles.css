@@ -1,13 +1,10 @@
-.LoginPage {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.auth-lock-social-buttons-pane {
-  display: none !important;
-}
-
-.auth0-lock-tabs-container {
-  display: none !important;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Heebo", Verdana, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  overflow-x: hidden;
 }
