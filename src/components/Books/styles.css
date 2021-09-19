@@ -41,7 +41,7 @@
 /* BACKGROUND PAGE */
 
 .books {
-  padding: 0 85px;
+  padding: 0 75px;
   width: auto;
   height: 100vh;
   background-image: url(../../assets/img/1st\ Background.png);
@@ -53,7 +53,7 @@
 .books-row {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 40px;
+  padding-top: 40px;
 }
 
 .book-card {

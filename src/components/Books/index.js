@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./styles.css";
-import Shape1 from "../../assets/img/Shape-1.png";
-import Shape from "../../assets/img/Shape.png";
 
-function Books() {
+function Books({ acessToken, refreshToken, id, name }) {
   const [books, setbooks] = useState();
   const url =
     "https://books.ioasys.com.br/api/v1/books?page=1&amount=25&category=biographies";
@@ -13,9 +11,7 @@ function Books() {
         method: "GET",
         headers: {
           "content-type": "application/x-www-form-urlencoded;charset=UTF-8",
-          Authorization:
-            "Bearer " +
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MDE3MTYzYWZhZjVkZTIyYjgwNGExNzMiLCJ2bGQiOjE2MzIwMjU0NTM3ODMsImlhdCI6MTYzMjAyOTA1Mzc4M30.K3cpE0gIo7JDgqVFBgAax4rI_QakfZOcx1591gOKXvI",
+          Authorization: "Bearer " + acessToken,
         },
       };
       const request = await fetch(url, option);
@@ -25,22 +21,8 @@ function Books() {
     getBooks();
   }, []);
 
-  console.log(books);
   return (
     <section className="books">
-      <div className="title-row-books">
-        <p className="title">Books</p>
-        <div className="logout-col">
-          <p className="welcome">
-            Bem vindo, <span>Gulherme!</span>
-          </p>
-          <button className="logout-btn">
-            <img src={Shape1} />
-            <img src={Shape} />
-          </button>
-        </div>
-      </div>
-
       <div className="books-row">
         {books?.map(
           ({

@@ -1,12 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import LoginPage from "./App";
-import Books from "./components/Books";
+import App from "./App";
+import "./styles.css";
 
 ReactDOM.render(
   <>
-    <LoginPage />
-    {/* <Books></Books> */}
+    <App />
   </>,
   document.getElementById("root")
 );
