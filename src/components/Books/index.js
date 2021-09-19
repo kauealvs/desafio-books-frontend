@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
+import ModalBook from "../Modal";
 import "./styles.css";
-
 function Books({ acessToken, refreshToken, id, name }) {
   const [books, setbooks] = useState();
+  const [modalopen, setmodalopen] = useState(false);
   const url =
     "https://books.ioasys.com.br/api/v1/books?page=1&amount=25&category=biographies";
   useEffect(() => {
@@ -34,7 +35,11 @@ function Books({ acessToken, refreshToken, id, name }) {
             published,
             publisher,
           }) => (
-            <div key={id} className="book-card">
+            <div
+              key={id}
+              className="book-card"
+              onClick={() => setmodalopen(true)}
+            >
               <div className="book-img">
                 <img src={imageUrl} />
               </div>
@@ -55,6 +60,7 @@ function Books({ acessToken, refreshToken, id, name }) {
           )
         )}
       </div>
+      <ModalBook modalopen={modalopen}></ModalBook>
     </section>
   );
 }
