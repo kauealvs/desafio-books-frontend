@@ -11,6 +11,7 @@ function App() {
   const [name, setname] = useState();
   const [id, setid] = useState();
   const [logged, setlogged] = useState(false);
+  const [error, seterror] = useState(false);
 
   const Login = async () => {
     const email = document.querySelector(".email");
@@ -26,7 +27,11 @@ function App() {
     };
     await fetch(login, option)
       .then((r) => {
+        console.log(r);
         r.status == "200" ? setlogged(true) : setlogged(false);
+        r.status == "401" || r.status == "400"
+          ? seterror(true)
+          : seterror(false);
         setacessToken(r.headers.get("Authorization"));
         setrefreshToken(r.headers.get("refresh-token"));
         return r.json();
@@ -41,7 +46,7 @@ function App() {
       {!logged || acessToken == undefined ? (
         <section className="login-page-container-sectioon">
           <div>
-            <p>Books</p>
+            <p className="books-title-form">Books</p>
             <input className="email" type="email" placeholder="E-mail" />
             <br></br>
             <input className="password" type="password" placeholder="Senha" />
@@ -52,6 +57,7 @@ function App() {
             >
               Entrar
             </button>
+            {error && <p className="error">E-mail e ou senha incorretos</p>}
           </div>
         </section>
       ) : (
