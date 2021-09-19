@@ -1,7 +1,7 @@
 /* LOGOUT ROW */
 .title-row-books {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -29,6 +29,7 @@
   border-radius: 50%;
   background-color: none;
   margin-left: 16px;
+  cursor: pointer;
 }
 
 .title-row-books .title::before {
@@ -40,7 +41,8 @@
 /* BACKGROUND PAGE */
 
 .books {
-  width: 100vw;
+  padding: 0 85px;
+  width: auto;
   height: 100vh;
   background-image: url(../../assets/img/1st\ Background.png);
   background-repeat: no-repeat;
@@ -51,13 +53,15 @@
 .books-row {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
   margin-top: 40px;
 }
 
 .book-card {
+  margin-right: 16px;
   display: flex;
-  width: 272px;
+  min-width: 272px;
+  max-width: 272px;
+  width: 100%;
   min-height: 160px;
   height: auto;
   background: #fff;
@@ -76,7 +80,7 @@
   margin-right: 16px;
 }
 
-.book-info h3 {
+.book-info h1 {
   margin: 16px 0 0 0;
   font-weight: 500;
   font-size: 14px;
@@ -99,4 +103,26 @@
   line-height: 20px;
 
   color: #999999;
+}
+
+/* mobile */
+@media screen and (max-width: 768px) {
+  .books {
+    padding: 0;
+  }
+  .welcome {
+    display: none;
+  }
+
+  .books-row {
+    justify-content: center;
+  }
+
+  .title-row-books {
+    justify-content: space-around;
+  }
+
+  .book-card {
+    margin: 0 12px 16px 12px;
+  }
 }

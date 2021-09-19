@@ -15,7 +15,7 @@ function Books() {
           "content-type": "application/x-www-form-urlencoded;charset=UTF-8",
           Authorization:
             "Bearer " +
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MDE3MTYzYWZhZjVkZTIyYjgwNGExNzMiLCJ2bGQiOjE2MzIwMTgyMDA4OTUsImlhdCI6MTYzMjAyMTgwMDg5NX0.HLSJBnwo_PpRsycGWz4Pgzkqzj-MvLyNDGXpqGdb7ik",
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MDE3MTYzYWZhZjVkZTIyYjgwNGExNzMiLCJ2bGQiOjE2MzIwMjU0NTM3ODMsImlhdCI6MTYzMjAyOTA1Mzc4M30.K3cpE0gIo7JDgqVFBgAax4rI_QakfZOcx1591gOKXvI",
         },
       };
       const request = await fetch(url, option);
@@ -40,6 +40,7 @@ function Books() {
           </button>
         </div>
       </div>
+
       <div className="books-row">
         {books?.map(
           ({
@@ -56,7 +57,7 @@ function Books() {
                 <img src={imageUrl} />
               </div>
               <div className="book-info">
-                <h3>{title}</h3>
+                <h1>{title}</h1>
                 <div className="authors">
                   {authors.map((author) => (
                     <p key={author} className="author">
