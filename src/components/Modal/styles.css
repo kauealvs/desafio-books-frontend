@@ -1,0 +1,61 @@
+.modal-book {
+  display: flex;
+}
+
+.col-img-modal {
+  margin-right: 48px;
+}
+
+.book-info-row {
+  display: flex;
+}
+
+.book-info-title {
+  margin-bottom: 15px;
+}
+
+.book-info-col1 {
+  margin-right: 95px;
+}
+
+.book-info-col1 p {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 28px;
+  color: #333333;
+}
+
+.book-info-col2 p {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 28px;
+  color: #999;
+}
+
+.book-row-description p {
+  margin: 32px 0 5px 0;
+}
+
+.book-info-text-description {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 20px;
+  color: #999;
+}
+
+.close-btn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* MODAL MOBILE */
+@media screen and (max-width: 768px) {
+  .modal-book {
+    flex-direction: column;
+  }
+
+  .ReactModal__Content {
+    width: 288px !important;
+    height: 978px !important;
+  }
+}

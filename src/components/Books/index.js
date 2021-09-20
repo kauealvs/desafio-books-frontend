@@ -4,6 +4,8 @@ import "./styles.css";
 function Books({ acessToken, refreshToken, id, name }) {
   const [books, setbooks] = useState();
   const [modalopen, setmodalopen] = useState(false);
+  const [bookid, setbookid] = useState();
+
   const url =
     "https://books.ioasys.com.br/api/v1/books?page=1&amount=25&category=biographies";
   useEffect(() => {
@@ -17,6 +19,7 @@ function Books({ acessToken, refreshToken, id, name }) {
       };
       const request = await fetch(url, option);
       const books = await request.json();
+      console.log(books);
       setbooks(books.data);
     };
     getBooks();
@@ -34,12 +37,12 @@ function Books({ acessToken, refreshToken, id, name }) {
             pageCount,
             published,
             publisher,
+            language,
+            description,
+            isbn10,
+            isbn13,
           }) => (
-            <div
-              key={id}
-              className="book-card"
-              onClick={() => setmodalopen(true)}
-            >
+            <div key={id} className="book-card" onClick={() => setbookid(id)}>
               <div className="book-img">
                 <img src={imageUrl} />
               </div>
@@ -47,20 +50,24 @@ function Books({ acessToken, refreshToken, id, name }) {
                 <h1>{title}</h1>
                 <div className="authors">
                   {authors.map((author) => (
-                    <p key={author} className="author">
-                      {author}
-                    </p>
+                    <>
+                      <p key={author} className="author">
+                        {author}
+                      </p>
+                    </>
                   ))}
                 </div>
-                <p className="sub-infos">{pageCount} páginas</p>
-                <p className="sub-infos">Editora {publisher}</p>
-                <p className="sub-infos">Publicado em {published}</p>
+                <div className="sub-infos">
+                  <p className="sub-infos">{pageCount} páginas</p>
+                  <p className="sub-infos">Editora {publisher}</p>
+                  <p className="sub-infos">Publicado em {published}</p>
+                </div>
               </div>
             </div>
           )
         )}
       </div>
-      <ModalBook modalopen={modalopen}></ModalBook>
+      <ModalBook bookid={bookid} acessToken={acessToken}></ModalBook>
     </section>
   );
 }

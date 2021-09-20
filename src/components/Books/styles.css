@@ -94,15 +94,15 @@
   color: #ab2680;
 }
 
-.authors p:last-child {
-  margin-bottom: 25px;
-}
-
 .sub-infos {
   font-size: 12px;
   line-height: 20px;
 
   color: #999999;
+}
+
+.sub-infos:first-child {
+  margin-top: 25px;
 }
 
 /* mobile */
