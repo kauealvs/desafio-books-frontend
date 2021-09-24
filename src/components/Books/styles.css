@@ -78,6 +78,7 @@
   width: 81px;
   height: 122px;
   margin-right: 16px;
+  cursor: pointer;
 }
 
 .book-info h1 {

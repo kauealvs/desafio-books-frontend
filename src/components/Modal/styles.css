@@ -48,6 +48,10 @@
   justify-content: flex-end;
 }
 
+.close-btn button {
+  cursor: pointer;
+}
+
 /* MODAL MOBILE */
 @media screen and (max-width: 768px) {
   .modal-book {
