@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { LoginApiContext } from "../../stores/LoginApiContext";
 import ModalBook from "../Modal";
 import "./styles.css";
-function Books({ acessToken, refreshToken, id, name }) {
+function Books() {
   const [books, setbooks] = useState();
-  const [modalopen, setmodalopen] = useState(false);
-  const [bookid, setbookid] = useState();
+  const data = useContext(LoginApiContext);
 
   const url =
     "https://books.ioasys.com.br/api/v1/books?page=1&amount=25&category=biographies";
@@ -14,12 +14,11 @@ function Books({ acessToken, refreshToken, id, name }) {
         method: "GET",
         headers: {
           "content-type": "application/x-www-form-urlencoded;charset=UTF-8",
-          Authorization: "Bearer " + acessToken,
+          Authorization: "Bearer " + data.acessToken,
         },
       };
       const request = await fetch(url, option);
       const books = await request.json();
-      console.log(books);
       setbooks(books.data);
     };
     getBooks();
@@ -42,7 +41,11 @@ function Books({ acessToken, refreshToken, id, name }) {
             isbn10,
             isbn13,
           }) => (
-            <div key={id} className="book-card" onClick={() => setbookid(id)}>
+            <div
+              key={id}
+              className="book-card"
+              onClick={() => data.setbookid(id)}
+            >
               <div className="book-img">
                 <img src={imageUrl} />
               </div>
@@ -67,7 +70,7 @@ function Books({ acessToken, refreshToken, id, name }) {
           )
         )}
       </div>
-      <ModalBook bookid={bookid} acessToken={acessToken}></ModalBook>
+      <ModalBook bookid={data.bookid}></ModalBook>
     </section>
   );
 }
